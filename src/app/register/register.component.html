@@ -1,0 +1,21 @@
+<form action="" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div>
+        <label for="">username</label>
+        <input 
+        type="text" 
+        formControlName="username"
+        [class.invalid]="registerForm.get('username')?.invalid && (registerForm.get)">
+    </div>
+    <div>
+        <label for="">email</label>
+        <input type="text" formControlName="email">
+    </div>
+    <div>
+        <label for="">password</label>
+        <input type="text" formControlName="password">
+    </div>
+    <div>
+        <button type="submit"> Register</button>
+    </div>
+</form>
+
