@@ -4,14 +4,14 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title text-center mb-4">Humber .NET Cloud Job Portal</h5>
-                    <form (ngSubmit)="onLogin()">
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                         <div class="mb-3">
-                            <label for="uname" class="form-label">Username</label>
-                            <input type="text" id="uname" name="uname" class="form-control" required>
+                            <label for="uname" class="form-label">Email</label>
+                            <input type="text" id="email" formControlName="email" name="email" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="pwd" class="form-label">Password</label>
-                            <input type="password" id="pwd" name="pwd" class="form-control" required>
+                            <input type="password" id="pwd" formControlName="pwd" name="pwd" class="form-control" required>
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-success">Login</button>

@@ -12,9 +12,7 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     email:['',[Validators.email,Validators.required]],
     pwd:['',Validators.required],
-    userName:['',Validators.required],
-    
-    
+    userName:['',Validators.required], 
   });
   errorMessage: string | null = null;
 
@@ -32,14 +30,6 @@ export class RegisterComponent {
     }
   }
 
- /* onSubmit(): void {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).then(
-        () => this.router.navigate(['/admin']),
-        error => this.errorMessage = error.message
-      );
-    }
-  }*/
+ 
 }
 
