@@ -16,8 +16,9 @@ export class AuthService {
     this.user$ = this.afAuth.authState;
   }
 
-  getCurrentUser(): Observable<User | null> {
-    return this.user$;
+ 
+  getCurrentUser(): Observable<firebase.User | null> {
+    return this.afAuth.authState;
   }
 
   login(email: string, password: string): Promise<firebase.auth.UserCredential> {

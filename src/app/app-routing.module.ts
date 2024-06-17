@@ -5,12 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { AboutComponent } from './about/about.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './guards/auth.gard';
+
 
 const routes: Routes = [
   {path : '', redirectTo: 'home', pathMatch: 'full'},
   {path : 'login', component: LoginComponent},
   {path : 'register', component: RegisterComponent},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   {path : 'home', component: HomeComponent},
   { path: 'job/:id', component: JobDetailsComponent },
   { path: 'about', component: AboutComponent },
