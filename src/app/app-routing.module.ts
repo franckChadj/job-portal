@@ -8,8 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
-  { path: '', component: NavbarComponent, outlet: 'navbar', pathMatch: 'full' },
-  {path : '', redirectTo: 'login', pathMatch: 'full'},
+  {path : '', redirectTo: 'home', pathMatch: 'full'},
   {path : 'login', component: LoginComponent},
   {path : 'register', component: RegisterComponent},
   {path : 'home', component: HomeComponent},

@@ -1,21 +1,31 @@
-<form action="" [formGroup]="registerForm" (ngSubmit)="onRegister()">
-    <div>
-        <label for="">username</label>
-        <input 
-        type="text" 
-        formControlName="username"
-        [class.invalid]="registerForm.get('username')?.invalid && (registerForm.get)">
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Registration Form</h5>
+                    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" formControlName="userName" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" formControlName="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" formControlName="pwd" class="form-control" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a routerLink="/login">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="">email</label>
-        <input type="text" formControlName="email">
-    </div>
-    <div>
-        <label for="">password</label>
-        <input type="text" formControlName="password">
-    </div>
-    <div>
-        <button type="submit"> Register</button>
-    </div>
-</form>
-
+</div>

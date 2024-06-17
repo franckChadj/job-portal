@@ -24,7 +24,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  register(email: string, password: string, displayName: string): Promise<void> {
+  register(email: string , password: string, displayName: string): Promise<void> {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(credential => {
         const user: User = {

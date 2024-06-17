@@ -10,14 +10,36 @@ import { AuthService } from '../service/auth.service';
 })
 export class RegisterComponent {
   registerForm = this.fb.group({
-    uName:['',Validators.required],
+    email:['',[Validators.email,Validators.required]],
     pwd:['',Validators.required],
-    email:['',[Validators.email,Validators.required]]
+    userName:['',Validators.required],
+    
+    
   });
+  errorMessage: string | null = null;
 
   constructor(private auth: AuthService, private router: Router,private fb: FormBuilder){
 
   }
 
-  onRegister(){}
+  onRegister(){
+    if(this.registerForm.valid){
+      const form = this.registerForm.getRawValue();
+      this.auth.register(form.email as string,form.pwd as string,form.pwd as string).then(
+        ()=> this.router.navigate(['/home']),
+        error => this.errorMessage = error.message
+      );
+    }
+  }
+
+ /* onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.authService.login(email, password).then(
+        () => this.router.navigate(['/admin']),
+        error => this.errorMessage = error.message
+      );
+    }
+  }*/
 }
+
